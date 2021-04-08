@@ -30,7 +30,7 @@
 - has_one :diary
 
 
-## Dairies テーブル
+## Diaries テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
