@@ -1,0 +1,20 @@
+<% unless user_signed_in? %>
+  <h1>トップページ<h1>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <%= link_to "ログイン", new_user_session_path %>
+  <div>アプリ説明</div>
+<% else %>
+  <h1>メニュー画面<h1>
+  <%= link_to "マイページ", user_path(current_user.id) %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <div class="menu-bar">
+    <ul>
+      <li>
+        <%= link_to "カレンダー", "#" %>
+        <%= link_to "日記", "#" %>
+        <%= link_to "アラーム", "#" %>
+        <%= link_to "ゲーム", "#" %>
+      </li>
+    </ul>
+  </div>
+<% end %>
