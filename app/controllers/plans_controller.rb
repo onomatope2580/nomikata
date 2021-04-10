@@ -23,6 +23,7 @@ class PlansController < ApplicationController
   end
 
   def create
+    binding.pry
     @plan = Plan.new(plan_params)
     if @plan.save
       redirect_to user_plans_path
@@ -36,9 +37,16 @@ class PlansController < ApplicationController
   end
 
   def edit
+    @plan = Plan.find(params[:id])
   end
 
   def update
+    @plan = Plan.find(params[:id])
+    if @plan.update(plan_params)
+      redirect_to user_plans_path
+    else
+      render :edit
+    end
   end
 
   private

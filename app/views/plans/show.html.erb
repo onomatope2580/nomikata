@@ -2,4 +2,6 @@
 
 <%= @plan.schedule %>
 
-<%= link_to "戻る", user_plans_path %>
+<%= link_to "予定の編集", edit_user_plan_path(id: @plan.id, date: @plan.date) %>
+
+<%= link_to "カレンダーへ戻る", user_plans_path %>
