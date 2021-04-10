@@ -15,6 +15,10 @@ class PlansController < ApplicationController
   end
 
   def new
+    @plan_show = Plan.where(date: params[:date])
+    unless @plan_show.empty?
+      redirect_to user_plan_path(id: @plan_show.ids)
+    end
     @plan = Plan.new(date: params[:date],user_id: params[:user_id])
   end
 
