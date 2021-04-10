@@ -3,7 +3,8 @@ class PlansController < ApplicationController
   before_action :transition_user
 
   def index
-    @plans = Plan.includes(:user)
+    @user = User.find(params[:user_id])
+    @plans = @user.plans.all
 
     @today = Date.today
     # 今年の西暦
@@ -15,7 +16,7 @@ class PlansController < ApplicationController
   end
 
   def new
-    @plan_show = Plan.where(date: params[:date])
+    @plan_show = Plan.where(user_id: params[:user_id], date: params[:date])
     unless @plan_show.empty?
       redirect_to user_plan_path(id: @plan_show.ids)
     end
@@ -23,7 +24,6 @@ class PlansController < ApplicationController
   end
 
   def create
-    binding.pry
     @plan = Plan.new(plan_params)
     if @plan.save
       redirect_to user_plans_path
@@ -36,7 +36,7 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 
-  def edit
+  def edit 
     @plan = Plan.find(params[:id])
   end
 
