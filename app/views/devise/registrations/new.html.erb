@@ -1,39 +1,43 @@
-<h2>新規登録</h2>
+<div class="registration">
+  <div class="registration-wrapper">
+    <div class="title"><h2>新しく登録</h2></div>
 
-<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%# <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label "ニックネーム"%>
-    <%= f.text_field :nickname, autofocus: true %>
+      <div class="field">
+        <%= f.label "ニックネーム", class:"label" %><br />
+        <%= f.text_field :nickname, autofocus: true, class:"nickname-box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "メールアドレス", class:"label" %><br />
+        <%= f.email_field :email, autocomplete: "email", class:"box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "パスワード", class:"label" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上の半角英数字)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "パスワード確認", class:"label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"box" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "体重", class:"label" %><br />
+        <%= f.text_field :weight, class:"weight-box" %><span>kg</span>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録する", class:"submit-box" %>
+      </div>
+    <% end %>
+
+    <%= link_to "最初へ戻る", root_path, class:"back-page" %>
   </div>
-
-  <div class="field">
-    <%= f.label "メールアドレス" %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上の半角英数字)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "パスワード確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "体重" %>
-    <%= f.text_field :weight %><span>kg</span>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録する" %>
-  </div>
-<% end %>
-
-<%= link_to "最初へ戻る", root_path %>
+</div>

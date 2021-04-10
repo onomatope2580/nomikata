@@ -53,3 +53,11 @@
   padding: 10px;
   background-color: lightpink;
 }
+
+.menu-wrapper{
+  width: 70vw;
+  height: 100vh;
+  padding: 0, 200px;
+  background-color: rgba(248, 248, 255, 0.795);
+  margin: auto;
+}

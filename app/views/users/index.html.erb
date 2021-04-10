@@ -1,6 +1,7 @@
 <div class="top">
-  <div class="top-wrapper">
-    <% unless user_signed_in? %>
+  <% unless user_signed_in? %>
+    <div class="top-wrapper">
+    
       <div class="title"><h1>のみかた🍺<h1></div>
       <div class="app-explanation">
         <p class="sentences">おいしく、楽しく、ヘルシーに</p>
@@ -10,9 +11,11 @@
         <%= link_to "新しく始める", new_user_registration_path, class:"sign-up" %>
         <%= link_to "ログインする", new_user_session_path, class:"login" %>
       </div>
-    <% else %>
-      <h1>メニュー画面<h1>
-      <%= link_to "マイページ", user_path(current_user.id) %>
+    </div>
+  <% else %>
+    <div class="menu-wrapper">
+      <%= "#{current_user.nickname}さんのメニュー" %>
+      <%= link_to "マイプロフィール", user_path(current_user.id) %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <div class="menu-bar">
         <ul>
@@ -24,6 +27,6 @@
           </li>
         </ul>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
