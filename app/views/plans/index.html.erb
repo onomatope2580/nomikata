@@ -1,0 +1,22 @@
+<div class="header">カレンダー</div>
+
+<div class="month"><%= @month %>月</div>
+
+<div class="calendar">
+  <% @day_num.times do |i|%>
+    <div class="date_num">
+      <%= link_to (i + 1), new_user_plan_path(date: Date.new(@year, @month, i + 1)) %>
+    </div>
+    <div class="plan">
+      <% @plans.each do |plan| %>
+        <% if plan.date == Date.new(@year, @month, i + 1) %>
+          目標アルコール量
+          <%= plan.alcohol_amount_plan %>mg
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+<%= link_to "戻る", root_path%>
