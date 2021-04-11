@@ -1,0 +1,14 @@
+<%= @plan.date.year %>年<%= @plan.date.month %>月<%= @plan.date.day %>日 新規予定
+
+<%= form_with model: @plan, url: user_plans_path(date: @plan.date), local: true do |f| %>
+
+  <%= f.label "予定" %>
+  <%= f.text_area :schedule %>
+
+  <%= f.label "目標アルコール量"%>
+  <%= f.text_area :alcohol_amount_plan %>mg
+
+  <%= f.submit "保存する" %>
+<% end %>
+
+<%= link_to "戻る", user_plans_path %>

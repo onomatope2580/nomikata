@@ -1,0 +1,75 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.top{
+  background-image: url("/images/860.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.top-wrapper{
+  width: 70vw;
+  height: 100vh;
+  padding: 0, 200px;
+  background-color: rgba(248, 248, 255, 0.795);
+  margin: auto;
+  padding: 0 20px;
+}
+
+.header{
+  width: 100%;
+  height: 10%;
+  display: flex;
+}
+
+.title h3{
+  font-size: 30px;
+}
+
+.month{
+  margin-left: 10px;
+}
+
+.back{
+  margin-left: 50px;
+  padding-top: 15px;
+}
+
+.calendar{
+  width: 100%;
+  height: 80%;
+  overflow: scroll;
+  border: 3px black solid;
+  background-color: white;
+}
+
+.calendar-days{
+  display: flex;
+  padding: 0 10px;
+  border: 1px black solid;
+}
+
+.num{
+  margin-right: 10px;
+  height: 100%;
+}
+
+.wday{
+  text-decoration: none;
+  color: blue;
+}
+
+.day{
+  margin-right: 20px;
+  height: 100%;
+}
+
+.goal{
+  display: inline;
+}
+
+.will{
+  margin-right: 10px;
+}
