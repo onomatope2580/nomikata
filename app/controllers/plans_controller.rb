@@ -13,6 +13,8 @@ class PlansController < ApplicationController
     @month = @today.month
     # 今月の日数
     @day_num = Date.new(@year, @month, -1).mday
+    # 曜日を取り出すインスタンス
+    @days = ["(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"]
   end
 
   def new

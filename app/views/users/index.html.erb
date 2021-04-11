@@ -5,7 +5,7 @@
       <div class="title"><h1>のみかた🍺<h1></div>
       <div class="app-explanation">
         <p class="sentences">おいしく、楽しく、ヘルシーに</p>
-        <p class="sentences">お酒をより良くするアプリです</p>
+        <p class="sentences">お酒が好きなあなた<span>のみかた</span></p>
       </div>
       <div class="entry">
         <%= link_to "新しく始める", new_user_registration_path, class:"sign-up" %>
@@ -14,17 +14,33 @@
     </div>
   <% else %>
     <div class="menu-wrapper">
-      <%= "#{current_user.nickname}さんのメニュー" %>
-      <%= link_to "マイプロフィール", user_path(current_user.id) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <div class="menu-bar">
-        <ul>
-          <li>
-            <%= link_to "カレンダー", user_plans_path(current_user.id) %>
-            <%= link_to "日記", "#" %>
-            <%= link_to "アラーム", "#" %>
-            <%= link_to "ゲーム", "#" %>
-          </li>
+      <div class="menu-header">
+        <div class="user-name"><%= current_user.nickname %>の　<span class="user-name">のみかた</span></div>
+        <div class="user-info">
+          <%= link_to "マイプロフィール", user_path(current_user.id), class:"info" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logout" %>
+        </div>
+      </div>
+      <div class="menu">
+        <ul class="menu-bar">
+          <li class="bar"><%= link_to "カレンダー", user_plans_path(current_user.id), class:"link-bar" %></li>
+          <li class="explanation">月毎に日々の「<span>のみかた</span>」記録と予定を確認できます。<br />
+            健康的なお酒生活を目指しましょう！</li>
+        </ul>
+        <ul class="menu-bar">
+          <li class="bar"><%= link_to "日記", "#", class:"link-bar" %></li>
+          <li class="explanation">今日の「<span>のみかた</span>」記録がつけられます。<br />
+            お酒やおつまみ、お店も記録してみんなでシェアしよう！</li>
+        </ul>
+        <ul class="menu-bar">
+          <li class="bar"><%= link_to "アラーム", "#", class:"link-bar" %></li>
+          <li class="explanation">設定した時刻になったら知らせてくれます。<br />
+            時間にもスマートな「<span>のみかた</span>」を心がけましょう！</li>
+        </ul>
+        <ul class="menu-bar">
+          <li class="bar"><%= link_to "ゲーム", "#", class:"link-bar" %></li>
+          <li class="explanation">みんなでミニゲームをしよう！<br />
+            いつもの「<span>のみかた</span>」をより楽しくします。</li>
         </ul>
       </div>
     </div>

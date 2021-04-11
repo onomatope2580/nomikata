@@ -1,22 +1,28 @@
-<div class="header">カレンダー</div>
-
-<div class="month"><%= @month %>月</div>
-
-<div class="calendar">
-  <% @day_num.times do |i|%>
-    <div class="date_num">
-      <%= link_to (i + 1), new_user_plan_path(date: Date.new(@year, @month, i + 1)) %>
+<div class="top">
+  <div class="top-wrapper">
+    <div class="header">
+      <div class="title"><h3>のみかたカレンダー<h3></div>
+      <div class="title month"><h3><%= @month %>月</h3></div>
+      <div class="back"><%= link_to "メニューページへ戻る", root_path%></div>
     </div>
-    <div class="plan">
-      <% @plans.each do |plan| %>
-        <% if plan.date == Date.new(@year, @month, i + 1) %>
-          目標アルコール量
-          <%= plan.alcohol_amount_plan %>mg
-        <% end %>
+
+    <div class="calendar">
+      <% @day_num.times do |i|%>
+        <div class="calendar-days">
+          <div class="num"><%= link_to "#{i + 1}日", new_user_plan_path(date: Date.new(@year, @month, i + 1)), class:"wday" %></div>
+          <div class="day"><%= @days[Date.new(@year, @month, i + 1).wday] %></div>
+          <div class="plan">
+            <% @plans.each do |plan| %>
+              <% if plan.date == Date.new(@year, @month, i + 1) && (plan.alcohol_amount_plan != nil || plan.schedule.length != 0) %>
+                <div class="goal will">予定あり</div>
+                <div class="goal">のみかた目標　<%= plan.alcohol_amount_plan %>mg</div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="result"></div>
+          <div class="warning"></div>
+        </div>
       <% end %>
     </div>
-  <% end %>
-
+  </div>
 </div>
-
-<%= link_to "メニューページへ戻る", root_path%>
