@@ -1,0 +1,140 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.new-plan{
+  width: 100vw;
+  height: 100vh;
+}
+
+.plan-title{
+  height: 15vh;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.plan-form{
+  height: 80vh;
+}
+
+.schedule{
+  margin-bottom: 20px;
+}
+
+.schedule-label{
+  text-align: center;
+  font-size: 20px;
+}
+
+.schedule-text{
+  text-align: center;
+  height: 100px;
+}
+
+.schedule-box{
+  height: 100px;
+  width: 500px;
+  overflow: scroll;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.amount-title{
+  text-align: center;
+  font-size: 20px;
+}
+
+.drink-choice{
+  width: 700px;
+  height: 350px;
+  border: 1px black solid;
+  margin: auto;
+  display: flex;
+}
+
+.left-choice{
+  width: 50%;
+  height: 100%;
+}
+
+.right-choice{
+  width: 50%;
+  height: 100%;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+}
+
+.amount{
+  margin-left: 20px;
+}
+
+.amount-box{
+  width: 50px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.amount-sum{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.users-safety{
+  margin-right: 50px;
+}
+
+.safety{
+  width: 80px;
+  height: 40px;
+  font-size: 20px;
+  border: 1px black solid;
+  padding-top: 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.g{
+  text-align: center;
+}
+
+.sum-label{
+  text-align: center;
+}
+
+.sum-text{
+  text-align: center;
+}
+
+.sum{
+  width: 80px;
+  height: 40px;
+  font-size: 20px;
+  border: 1px black solid;
+  padding-top: 5px;
+  margin: auto;
+}
+
+.sum-box{
+  display: none;
+}
+
+.submit{
+  text-align: center;
+  margin-top: 40px;
+}
+
+.submit-btn{
+  margin-left: 20px;
+  font-size: 30px;
+  border: 1px black solid;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: lightpink;
+}
