@@ -18,6 +18,9 @@ class PlansController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
+    @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
+    @user_safety_amount = @user_safety.round(1)
     @plan_show = Plan.where(user_id: params[:user_id], date: params[:date])
     unless @plan_show.empty?
       redirect_to user_plan_path(id: @plan_show.ids)
@@ -27,10 +30,10 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
-    if @plan.save
+    if @plan.schedule.empty? && @plan.alcohol_amount_plan == nil
       redirect_to user_plans_path
-    else
-      render :new
+    elsif @plan.save
+      redirect_to user_plans_path
     end
   end
 
