@@ -56,7 +56,7 @@
       <div class="amount-sum">
         <div class="users-safety">
           <div class="safety-title">あなたの1日の適正量</div>
-          <div class="safety"><%= @user_safety_amount %></div>
+          <div class="safety" ><%= @user_safety_amount %></div>
           <div class="g">g</div>
         </div>
         <div class="alcohol-sum">
@@ -65,9 +65,13 @@
         </div>
           <%= f.text_field :alcohol_amount_plan, class:"sum-box", id:"sum-box" %>
       </div>
+      <div class="comment" id="comment">
+        <h3 class="comment-text" id="comment-text"></h3>
+      </div>
       <div class="submit">
         <%= f.submit "保存する", class:"submit-btn", id:"submit-btn" %>
       </div>
     <% end %>
+    <input type="hidden" id="safety-amount" name="safety-amount" value="<%= @user_safety_amount %>" >
   </div>
 </div>

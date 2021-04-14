@@ -30,7 +30,7 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
-    if @plan.schedule.empty? && @plan.alcohol_amount_plan == nil
+    if @plan.schedule.empty? && (@plan.alcohol_amount_plan == nil || @plan.alcohol_amount_plan == 0)
       redirect_to user_plans_path
     elsif @plan.save
       redirect_to user_plans_path
