@@ -18,7 +18,7 @@ function amount () {
     const b = 180 * 0.15 * box1;
     const c = 100 * 0.25 * box2;
     const d = 500 * 0.05 * box3;
-    const e = 120 * (0.13 * 10) * box4 /10;
+    const e = 120 * (0.13 * 10) * box4 / 10;
     const f = 30 * (0.40 * 10) * box5 / 10;
     const g = (box6 / 100) * box7;
     
