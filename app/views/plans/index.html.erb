@@ -4,6 +4,7 @@
       <div class="title"><h3>のみかたカレンダー<h3></div>
       <div class="title month"><h3><%= @month %>月</h3></div>
       <div class="back"><%= link_to "メニューページへ戻る", root_path%></div>
+      <input type="hidden" value="<%= @user_safety_amount %>" id="safety-amount">
     </div>
 
     <div class="calendar">
@@ -15,12 +16,17 @@
             <% @plans.each do |plan| %>
               <% if plan.date == Date.new(@year, @month, i + 1) && (plan.alcohol_amount_plan != nil || plan.schedule.length != 0) %>
                 <div class="goal will">予定あり</div>
-                <div class="goal">のみかた目標　<%= plan.alcohol_amount_plan %>mg</div>
+                <div class="goal">目標　<%= plan.alcohol_amount_plan %>mg</div>
+                <% if plan.alcohol_amount_plan != "" %>
+                  <input type="hidden" value="<%= plan.alcohol_amount_plan %>" id="<%= i %><%= i %><%= i %>">
+                <% else %>
+                  <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
+                <% end %>
               <% end %>
             <% end %>
+            <div class="result"></div>
+            <div class="warning"><h3 class="warning-text" id="<%= i %><%= i %>"></h3></div>
           </div>
-          <div class="result"></div>
-          <div class="warning"></div>
         </div>
       <% end %>
     </div>

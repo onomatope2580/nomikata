@@ -4,7 +4,19 @@ class PlansController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
+    @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
+    @user_safety_amount = @user_safety.round(1)
     @plans = @user.plans.all
+    plans = @user.plans.all
+    
+    # plan_hash = {}
+    # @plans.each do |plan|
+    #   hash = {plan.date => plan.alcohol_amount_plan}
+    #   plan_hash.merge(hash)
+    # end
+
+    # @plan_hash = plan_hash
+
 
     @today = Date.today
     # 今年の西暦
