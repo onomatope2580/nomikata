@@ -18,7 +18,7 @@ function amount () {
     const b = 180 * 0.15 * box1;
     const c = 100 * 0.25 * box2;
     const d = 500 * 0.05 * box3;
-    const e = 120 * (0.13 * 10) * box4 /10;
+    const e = 120 * (0.13 * 10) * box4 / 10;
     const f = 30 * (0.40 * 10) * box5 / 10;
     const g = (box6 / 100) * box7;
     
@@ -37,8 +37,24 @@ function amount () {
       sumBox.value = "";
     }
 
-    
-
+    // コメントの挿入
+    const safetyAmount = document.getElementById("safety-amount").value;
+    const commentText = document.getElementById("comment-text");
+    if (alcoholSumG == 0) {
+      commentText.innerHTML = "";
+    } else if (alcoholSumG <= safetyAmount) {
+      commentText.innerHTML = "適正値です";
+      commentText.style.color = "chartreuse"
+    } else if (alcoholSumG > safetyAmount && alcoholSumG <= safetyAmount * 2) {
+      commentText.innerHTML = "適正値オーバーです！";
+      commentText.style.color = "red"
+    } else if (alcoholSumG > safetyAmount * 2 && alcoholSumG <= safetyAmount * 4) {
+      commentText.innerHTML = "飲み過ぎです！少し控えて下さい！";
+      commentText.style.color = "red"
+    } else if (alcoholSumG > safetyAmount * 4) {
+      commentText.innerHTML = "死にますよ？";
+      commentText.style.color = "red"
+    }
   });
 };
 

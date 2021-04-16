@@ -121,6 +121,16 @@ ul{
   margin: auto;
 }
 
+.comment{
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.comment-text{
+  font-size: 30px;
+}
+
 .sum-box{
   display: none;
 }

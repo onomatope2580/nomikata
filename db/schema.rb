@@ -16,6 +16,14 @@ ActiveRecord::Schema.define(version: 2021_04_09_080545) do
     t.date "date", null: false
     t.text "schedule"
     t.integer "alcohol_amount_plan"
+    t.integer "small_beer"
+    t.integer "large_beer"
+    t.integer "japanese_sake"
+    t.integer "wine"
+    t.integer "shochu"
+    t.integer "wisky"
+    t.integer "another_percentage"
+    t.integer "another_amount"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

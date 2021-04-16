@@ -4,7 +4,19 @@ class PlansController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
+    @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
+    @user_safety_amount = @user_safety.round(1)
     @plans = @user.plans.all
+    plans = @user.plans.all
+    
+    # plan_hash = {}
+    # @plans.each do |plan|
+    #   hash = {plan.date => plan.alcohol_amount_plan}
+    #   plan_hash.merge(hash)
+    # end
+
+    # @plan_hash = plan_hash
+
 
     @today = Date.today
     # 今年の西暦
@@ -29,19 +41,21 @@ class PlansController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
+    @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
+    @user_safety_amount = @user_safety.round(1)
     @plan = Plan.new(plan_params)
-    if @plan.schedule.empty? && @plan.alcohol_amount_plan == nil
-      redirect_to user_plans_path
+    if @plan.schedule.empty? && (@plan.alcohol_amount_plan == nil || @plan.alcohol_amount_plan == 0)
+      render :new
     elsif @plan.save
       redirect_to user_plans_path
     end
   end
 
   def show
-    @plan = Plan.find(params[:id])
-  end
-
-  def edit 
+    @user = User.find(params[:user_id])
+    @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
+    @user_safety_amount = @user_safety.round(1)
     @plan = Plan.find(params[:id])
   end
 
@@ -50,14 +64,14 @@ class PlansController < ApplicationController
     if @plan.update(plan_params)
       redirect_to user_plans_path
     else
-      render :edit
+      render :show
     end
   end
 
   private
 
   def plan_params
-    params.require(:plan).permit(:schedule, :alcohol_amount_plan).merge(date: params[:date], user_id: params[:user_id])
+    params.require(:plan).permit(:schedule, :alcohol_amount_plan, :small_beer, :large_beer, :japanese_sake, :wine, :shochu, :wisky, :another_percentage, :another_amount).merge(date: params[:date], user_id: params[:user_id])
   end
 
   def transition_user
