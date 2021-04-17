@@ -8,15 +8,6 @@ class PlansController < ApplicationController
     @user_safety_amount = @user_safety.round(1)
     @plans = @user.plans.all
     plans = @user.plans.all
-    
-    # plan_hash = {}
-    # @plans.each do |plan|
-    #   hash = {plan.date => plan.alcohol_amount_plan}
-    #   plan_hash.merge(hash)
-    # end
-
-    # @plan_hash = plan_hash
-
 
     @today = Date.today
     # 今年の西暦
@@ -45,7 +36,7 @@ class PlansController < ApplicationController
     @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
     @user_safety_amount = @user_safety.round(1)
     @plan = Plan.new(plan_params)
-    if @plan.schedule.empty? && (@plan.alcohol_amount_plan == nil || @plan.alcohol_amount_plan == 0)
+    if @plan.schedule.empty? && @plan.small_beer == nil && @plan.large_beer == nil && @plan.japanese_sake == nil && @plan.wine == nil && @plan.shochu == nil && @plan.wisky == nil && @plan.another_percentage == nil && @plan.another_amount == nil && (@plan.alcohol_amount_plan == nil || @plan.alcohol_amount_plan == 0)
       render :new
     elsif @plan.save
       redirect_to user_plans_path
