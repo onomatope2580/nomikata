@@ -1,16 +1,25 @@
 <div class="new-plan">
   <div class="plan-title">
-    <%= @plan.date.year %>年<%= @plan.date.month %>月<%= @plan.date.day %>日の日記
+    <%= @today.year %>年<%= @today.month %>月<%= @today.day %>日  のみかた日記
     <span class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></span>
   </div>
   <div class="plan-form">
-    <%= form_with model: @plan, url: user_plans_path(date: @plan.date), id:"form", local: true do |f| %>
+    <%= form_with model: @ddfr, url: diaries_path(date: @today), id:"form", local: true do |f| %>
       <div class="schedule">
-        <div class="schedule-label"><%= f.label "のみかた記録" %></div>
+        <div class="schedule-label"><%= f.label "タイトル" %></div>
         <div class="schedule-text"><%= f.text_field :title, class:"schedule-box" %></div>
       </div>
+      <div class="diary-comment">
+        <div class="diary-comment-label"><%= f.label "コメント" %></div>
+        <div class="diary-comment-text"><%= f.text_area :comment, class:"diary-box"%></div>
+      </div>
       <div class="alcohol_amount_plan">
-        <div class="amount-title">のみかた目標　(半角数字で入力してね)</div>
+        <% if @day_plan.alcohol_amount_plan != nil %>
+          <div class="today-goal">今日の目標</div>
+          <div class="today-plan"><%= @day_plan.alcohol_amount_plan %>mg</div>
+          <input type="hidden" id="today-plan" value="<%= @day_plan.alcohol_amount_plan %>">
+        <% end %>
+        <div class="amount-title">のみかた実績　(半角数字で入力してね)</div>
         <div class="drink-choice">
           <div class="left-choice">
             <ul class="drinks">
@@ -61,12 +70,38 @@
         </div>
         <div class="alcohol-sum">
           <div class="sum-label"><%= f.label "純アルコール量合計"%></div>
-          <div class ="sum-text"><p class="sum" id="sum"></p>g</div>
+          <div class ="sum-text"><p class="sum" id="today-sum"></p>g</div>
         </div>
-          <%= f.text_field :alcohol_amount_plan, class:"sum-box", id:"sum-box" %>
+          <%= f.text_field :alcohol_amount, class:"sum-box", id:"sum-box" %>
       </div>
       <div class="comment" id="comment">
         <h3 class="comment-text" id="comment-text"></h3>
+      </div>
+      <div class="drink">
+        <div class="name-title">今日のお酒</div>
+        <div class="drink-name"><%= f.text_field :d_name, class:"d_name" %></div>
+        <div class="comment-title">お酒の感想</div>
+        <div class="drink-comment"><%= f.text_field :d_comment, class:"d_comment" %></div>
+        <div class="input"><%= f.label :drink_image, "写真をアップする", class:"input-btn" %></div>
+        <div class="drink-image"><%= f.file_field :drink_image, class:"image-form" %>
+      </div>
+      <div class="food">
+        <div class="name-title">今日のおつまみ</div>
+        <div class="food-name"><%= f.text_field :f_name, class:"f_name" %></div>
+        <div class="comment-title">おつまみの感想</div>
+        <div class="food-comment"><%= f.text_field :f_comment, class:"f_comment" %></div>
+        <div class="input"><%= f.label :food_image, "写真をアップする", class:"input-btn" %></div>
+        <div class="food-image"><%= f.file_field :food_image, class:"image-form" %>
+      </div>
+      <div class="restaurant">
+        <div class="name-title">今日のお店</div>
+        <div class="restaurant-name"><%= f.text_field :r_name, class:"r_name" %></div>
+        <div class="comment-title">お店の感想</div>
+        <div class="restaurant-comment"><%= f.text_field :r_comment, class:"r_comment" %></div>
+        <div class="comment-title">お店の情報など</div>
+        <div class="restaurant-address"><%= f.text_field :r_address, class:"r_address" %></div>
+        <div class="input"><%= f.label :restaurant_image, "写真をアップする", class:"input-btn" %></div>
+        <div class="restaurant-image"><%= f.file_field :restaurant_image, class:"image-form" %>
       </div>
       <div class="submit">
         <%= f.submit "保存する", class:"submit-btn", id:"submit-btn" %>
