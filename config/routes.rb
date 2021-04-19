@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :plans, except: :destroy
   end
+  resources :diaries
 end
