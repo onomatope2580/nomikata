@@ -27,7 +27,6 @@
 ### Association
 
 - belongs_to :user
-- has_one :diary
 
 
 ## Diaries テーブル
@@ -39,12 +38,10 @@
 | comment         | text       |                                |
 | alcohol_amount  | integer    |                                |
 | user            | references | null: false, foreign_key: true |
-| plan            | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :plan
 - has_one :restaurant
 - has_one :drink
 - has_one :food
@@ -54,9 +51,9 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     |                                |
-| comment               | text       |                                |
-| address               | string     |                                |
+| r_name                | string     |                                |
+| r_comment             | text       |                                |
+| r_address             | string     |                                |
 | diary                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -68,8 +65,8 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     |                                |
-| comment               | text       |                                |
+| d_name                | string     |                                |
+| d_comment             | text       |                                |
 | diary                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -81,8 +78,8 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     |                                |
-| comment               | text       |                                |
+| f_name                | string     |                                |
+| f_comment             | text       |                                |
 | diary                 | references | null: false, foreign_key: true |
 
 ### Association

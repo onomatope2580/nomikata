@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :nickname, :weight, presence: true
 
   has_many :plans
+  has_many :diaries
 end
