@@ -51,9 +51,9 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     |                                |
-| comment               | text       |                                |
-| address               | string     |                                |
+| r_name                | string     |                                |
+| r_comment             | text       |                                |
+| r_address             | string     |                                |
 | diary                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -65,8 +65,8 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     |                                |
-| comment               | text       |                                |
+| d_name                | string     |                                |
+| d_comment             | text       |                                |
 | diary                 | references | null: false, foreign_key: true |
 
 ### Association
@@ -78,8 +78,8 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     |                                |
-| comment               | text       |                                |
+| f_name                | string     |                                |
+| f_comment             | text       |                                |
 | diary                 | references | null: false, foreign_key: true |
 
 ### Association

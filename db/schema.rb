@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   create_table "drinks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "comment"
+    t.string "d_name"
+    t.text "d_comment"
     t.bigint "diary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "comment"
+    t.string "f_name"
+    t.text "f_comment"
     t.bigint "diary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "comment"
-    t.string "address"
+    t.string "r_name"
+    t.text "r_comment"
+    t.string "r_address"
     t.bigint "diary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
