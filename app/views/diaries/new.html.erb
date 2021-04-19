@@ -1,0 +1,77 @@
+<div class="new-plan">
+  <div class="plan-title">
+    <%= @plan.date.year %>年<%= @plan.date.month %>月<%= @plan.date.day %>日の日記
+    <span class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></span>
+  </div>
+  <div class="plan-form">
+    <%= form_with model: @plan, url: user_plans_path(date: @plan.date), id:"form", local: true do |f| %>
+      <div class="schedule">
+        <div class="schedule-label"><%= f.label "のみかた記録" %></div>
+        <div class="schedule-text"><%= f.text_field :title, class:"schedule-box" %></div>
+      </div>
+      <div class="alcohol_amount_plan">
+        <div class="amount-title">のみかた目標　(半角数字で入力してね)</div>
+        <div class="drink-choice">
+          <div class="left-choice">
+            <ul class="drinks">
+              <li class="beer">ビール350ml<br />
+              缶チューハイ350ml</li>
+              <li class ="amount"><%= f.text_field :small_beer, class:"amount-box", id:"box1" %>本</li>
+            </ul>
+            <ul class="drinks">
+              <li class="beer">日本酒180ml<br />
+              （1合）</li>
+              <li class ="amount"><%= f.text_field :japanese_sake, class:"amount-box", id:"box2" %>合</li>
+            </ul>
+            <ul class="drinks">
+              <li class="beer">焼酎100ml<br />
+              （グラス一杯）</li>
+              <li class ="amount"><%= f.text_field :shochu, class:"amount-box", id:"box3" %>杯</li>
+            </ul>
+          </div>
+          <div class="right-choice">
+           <ul class="drinks">
+              <li class="beer">ビール500ml<br />
+              缶チューハイ500ml</li>
+              <li class ="amount"><%= f.text_field :large_beer, class:"amount-box", id:"box4" %>本</li>
+            </ul>
+            <ul class="drinks">
+              <li class="beer">ワイン120ml<br />
+              （グラス一杯）</li>
+              <li class ="amount"><%= f.text_field :wine, class:"amount-box", id:"box5" %>杯</li>
+            </ul>
+            <ul class="drinks">
+              <li class="beer">ウイスキー30ml<br />
+              （ショットグラス一杯）</li>
+              <li class ="amount"><%= f.text_field :wisky, class:"amount-box", id:"box6" %>杯</li>
+            </ul>
+            <ul class="drinks">
+              <li class="beer">その他のお酒<br />
+              （度数）<%= f.text_field :another_percentage, class:"amount-box", id:"box7" %>%</li>
+              <li class ="amount"><%= f.text_field :another_amount, class:"amount-box", id:"box8" %>ml</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="amount-sum">
+        <div class="users-safety">
+          <div class="safety-title">あなたの1日の適正量</div>
+          <div class="safety" ><%= @user_safety_amount %></div>
+          <div class="g">g</div>
+        </div>
+        <div class="alcohol-sum">
+          <div class="sum-label"><%= f.label "純アルコール量合計"%></div>
+          <div class ="sum-text"><p class="sum" id="sum"></p>g</div>
+        </div>
+          <%= f.text_field :alcohol_amount_plan, class:"sum-box", id:"sum-box" %>
+      </div>
+      <div class="comment" id="comment">
+        <h3 class="comment-text" id="comment-text"></h3>
+      </div>
+      <div class="submit">
+        <%= f.submit "保存する", class:"submit-btn", id:"submit-btn" %>
+      </div>
+    <% end %>
+    <input type="hidden" id="safety-amount" name="safety-amount" value="<%= @user_safety_amount %>" >
+  </div>
+</div>
