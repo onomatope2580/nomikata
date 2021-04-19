@@ -39,10 +39,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
     t.string "title"
     t.text "comment"
     t.bigint "user_id", null: false
-    t.bigint "plan_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["plan_id"], name: "index_diaries_on_plan_id"
     t.index ["user_id"], name: "index_diaries_on_user_id"
   end
 
@@ -107,7 +105,6 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "diaries", "plans"
   add_foreign_key "diaries", "users"
   add_foreign_key "drinks", "diaries"
   add_foreign_key "foods", "diaries"

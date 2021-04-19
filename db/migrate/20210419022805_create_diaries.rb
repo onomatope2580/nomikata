@@ -6,7 +6,6 @@ class CreateDiaries < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :comment
       t.references :user, foreign_key: true, null: false
-      t.references :plan, foreign_key: true, null: false
       t.timestamps
     end
   end
