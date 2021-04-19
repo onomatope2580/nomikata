@@ -21,11 +21,11 @@ function calendarWarning () {
 
     if (dayBeforeTwo != null) {
       if (planInputBeforeOne != null && planInputBeforeOne.value != "#" && planInputBeforeOne.value >= safetyAmount*1.5) {
-        day.innerHTML = "休！";
+        day.innerHTML = "休肝日推奨！";
         dayBeforeOne.innerHTML = "";
         dayBeforeOne.innerHTML = "";
       } else if (planInputBeforeOne != null && planInputBeforeTwo != null && planInputBeforeOne.value != "#" && planInputBeforeTwo.value != "#") {
-        day.innerHTML = "休！";
+        day.innerHTML = "休肝日推奨！";
         dayBeforeOne.innerHTML = "";
         dayBeforeOne.innerHTML = "";
       }

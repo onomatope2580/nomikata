@@ -10,7 +10,7 @@
     <div class="calendar">
       <% @day_num.times do |i|%>
         <div class="calendar-days">
-          <div class="num"><%= link_to "#{i + 1}日", new_user_plan_path(date: Date.new(@year, @month, i + 1)), class:"wday" %></div>
+          <div class="num"><%= link_to "#{i + 1}日", new_plan_path(date: Date.new(@year, @month, i + 1)), class:"wday" %></div>
           <div class="day"><%= @days[Date.new(@year, @month, i + 1).wday] %></div>
           <div class="plan">
             <% @plans.each do |plan| %>
