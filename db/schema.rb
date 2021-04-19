@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
     t.integer "alcohol_amount"
     t.string "title"
     t.text "comment"
+    t.integer "small_beer"
+    t.integer "large_beer"
+    t.integer "japanese_sake"
+    t.integer "wine"
+    t.integer "shochu"
+    t.integer "wisky"
+    t.integer "another_percentage"
+    t.integer "another_amount"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
