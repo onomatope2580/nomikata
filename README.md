@@ -27,7 +27,6 @@
 ### Association
 
 - belongs_to :user
-- has_one :diary
 
 
 ## Diaries テーブル
@@ -39,12 +38,10 @@
 | comment         | text       |                                |
 | alcohol_amount  | integer    |                                |
 | user            | references | null: false, foreign_key: true |
-| plan            | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :plan
 - has_one :restaurant
 - has_one :drink
 - has_one :food
