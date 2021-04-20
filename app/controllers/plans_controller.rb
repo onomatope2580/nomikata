@@ -7,7 +7,7 @@ class PlansController < ApplicationController
     @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
     @user_safety_amount = @user_safety.round(1)
     @plans = @user.plans.all
-    plans = @user.plans.all
+    @diaries = @user.diaries.all
 
     @today = Date.today
     # 今年の西暦

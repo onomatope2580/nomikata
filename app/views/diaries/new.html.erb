@@ -14,7 +14,7 @@
         <div class="diary-comment-text"><%= f.text_area :comment, class:"diary-box"%></div>
       </div>
       <div class="alcohol_amount_plan">
-        <% if @day_plan.alcohol_amount_plan != nil %>
+        <% unless @day_plan.nil? %>
           <div class="today-goal">今日の目標</div>
           <div class="today-plan"><%= @day_plan.alcohol_amount_plan %>mg</div>
           <input type="hidden" id="today-plan" value="<%= @day_plan.alcohol_amount_plan %>">
