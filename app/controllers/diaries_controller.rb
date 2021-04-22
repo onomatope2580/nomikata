@@ -26,12 +26,26 @@ class DiariesController < ApplicationController
   end
 
   def show
+    # @user = User.find(current_user.id)
+    # @user_safety = 0.1 * 833 * @user.weight * 0.8 / 100
+    # @user_safety_amount = @user_safety.round(1)
+
+    # @day = params[:date]
+
+    # @day_plan = Plan.find_by(date: @day)
+    # @diary = Diary.find(params[:id])
+    # @food = Food.find_by(diary_id: @diary.id)
+    # @drink = Drink.find_by(diary_id: @diary.id)
+    # @restaurant = Restaurant.find_by(diary_id: @diary.id)
+    # @ddfr = Ddfr.new(current_user.id, @diary, @drink, @food, @resturant)
+
   end
 
   def edit
   end
 
   def update
+    binding.pry
   end
 
   def destroy

@@ -15,10 +15,21 @@
           <div class="plan">
             <% @plans.each do |plan| %>
               <% if plan.date == Date.new(@year, @month, i + 1) && (plan.alcohol_amount_plan != nil || plan.schedule.length != 0) %>
-                <div class="goal will">予定あり</div>
+                <div class="goal will"></div>
                 <div class="goal">目標　<%= plan.alcohol_amount_plan %>mg</div>
                 <% if plan.alcohol_amount_plan != "" %>
                   <input type="hidden" value="<%= plan.alcohol_amount_plan %>" id="<%= i %><%= i %><%= i %>">
+                <% else %>
+                  <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
+                <% end %>
+              <% end %>
+            <% end %>
+            <% @diaries.each do |diary| %>
+              <% if diary.date == Date.new(@year, @month, i + 1) %>
+                <div class="goal will"></div>
+                <div class="goal real">実績　<%= diary.alcohol_amount %>mg</div>
+                <% if diary.alcohol_amount != "" %>
+                  <input type="hidden" value="<%= diary.alcohol_amount %>" id="<%= i %><%= i %><%= i %>">
                 <% else %>
                   <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
                 <% end %>
