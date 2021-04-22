@@ -55,6 +55,17 @@ function amount () {
       commentText.innerHTML = "死にますよ？";
       commentText.style.color = "red"
     }
+
+    const hourText = document.getElementById('hour-text');
+    const aboutSafetyHour = alcoholSumG / ((safetyAmount * 100 / (0.1 * 0.8 * 833)) * 0.1);
+    const safetyHour = Math.floor( aboutSafetyHour * Math.pow( 10, n ) ) / Math.pow( 10, n );
+    const hour = Math.floor(safetyHour);
+    const minutes = Math.floor(60 * (safetyHour % 1));
+    hourText.innerHTML = `運転できるのは${hour}時間${minutes}分後です`
+    hourText.style.color = "blue"
+    if (alcoholSumG == 0) {
+      hourText.innerHTML = "";
+    }
   });
 };
 

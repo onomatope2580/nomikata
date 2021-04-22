@@ -1,3 +1,102 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.diary-schedule-text{
+  text-align: center;
+  height: 60px;
+}
+
+.diary-schedule-box{
+  height: 40px;
+  width: 50%;
+  font-size: 20px;
+}
+
+.diary-comment-label{
+  text-align: center;
+}
+
+.diary-comment{
+  font-size: 20px;
+}
+
+.diary-comment-text{
+  text-align: center;
+}
+
+.diary-box{
+  width: 700px;
+  height: 200px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.today-plan-content{
+  margin: 20px 0;
+}
+
+.today-goal{
+  text-align: center;
+  font-size: 20px;
+}
+
+.today-plan{
+  text-align: center;
+  font-size: 40px;
+  color: red;
+}
+
+.contents{
+  margin: 40px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.c_name{
+  height: 40px;
+  width: 400px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.c_comment{
+  height: 100px;
+  width: 400px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.c_address{
+  height: 40px;
+  width: 400px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.image-wrapper{
+  margin-left: 30px;
+  width: 300px;
+  position: relative;
+}
+
+.image-box1{
+  width: 100%;
+  height: 90%;
+}
+
+.image-box2{
+  width: 100%;
+  height: 90%;
+}
+
+.image-box3{
+  width: 100%;
+  height: 90%;
+  padding-top: 40px;
+}
+
 .input-btn{
   display: block;
   background-color: #228B22;
@@ -11,6 +110,13 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+  position: absolute;
+  top: 180px;
+}
+
+.res{
+  position: absolute;
+  top: 240px;
 }
 
 .image-form{

@@ -1,10 +1,10 @@
 <div class="new-plan">
   <div class="plan-title">
-    <%= @today.year %>年<%= @today.month %>月<%= @today.day %>日  のみかた日記
+    
     <span class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></span>
   </div>
   <div class="plan-form">
-    <%= form_with model: @ddfr, url: diaries_path(date: @today), id:"form", local: true do |f| %>
+    <%= form_with model: @ddfr, url: diary_path(diary_id: @diary.id, date: @day), method: :patch, id:"form", local: true do |f| %>
       <div class="schedule">
         <div class="schedule-label"><%= f.label "タイトル" %></div>
         <div class="diary-schedule-text"><%= f.text_field :title, class:"diary-schedule-box" %></div>
@@ -16,7 +16,7 @@
       <div class="alcohol_amount_plan">
         <% unless @day_plan.nil? %>
           <div class="today-plan-content">
-            <div class="today-goal">今日の目標</div>
+            <div class="today-goal">この日の目標</div>
             <div class="today-plan"><%= @day_plan.alcohol_amount_plan %>mg</div>
           </div>
           <input type="hidden" id="today-plan" value="<%= @day_plan.alcohol_amount_plan %>">
@@ -84,7 +84,7 @@
       </div>
       <div class="contents">
         <div class="content-wrapper">
-          <div class="name-title">今日のお酒</div>
+          <div class="name-title">この日のお酒</div>
           <div class="content-name"><%= f.text_field :d_name, class:"c_name" %></div>
           <div class="comment-title">お酒の感想</div>
           <div class="content-comment"><%= f.text_area :d_comment, class:"c_comment" %></div>
@@ -97,7 +97,7 @@
       </div>
       <div class="contents">
         <div class="content-wrapper">
-          <div class="name-title">今日のおつまみ</div>
+          <div class="name-title">この日のおつまみ</div>
           <div class="content-name"><%= f.text_field :f_name, class:"c_name" %></div>
           <div class="comment-title">おつまみの感想</div>
           <div class="content-comment"><%= f.text_area :f_comment, class:"c_comment" %></div>
@@ -110,7 +110,7 @@
       </div>
       <div class="contents">
         <div class="content-wrapper">
-          <div class="name-title">今日のお店</div>
+          <div class="name-title">この日のお店</div>
           <div class="content-name"><%= f.text_field :r_name, class:"c_name" %></div>
           <div class="comment-title">お店の感想</div>
           <div class="content-comment"><%= f.text_area :r_comment, class:"c_comment" %></div>

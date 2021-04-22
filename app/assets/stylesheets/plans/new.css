@@ -132,6 +132,13 @@ ul{
   font-size: 30px;
 }
 
+.hour-info{
+  text-align: center;
+  margin: 10px 0;
+}
+
+
+
 .sum-box{
   display: none;
 }
