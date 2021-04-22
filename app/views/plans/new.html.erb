@@ -1,10 +1,10 @@
 <div class="new-plan">
   <div class="plan-title">
     <%= @plan.date.year %>年<%= @plan.date.month %>月<%= @plan.date.day %>日 新規予定
-    <span class="back-link"><%= link_to "カレンダーに戻る", user_plans_path, class:"back" %></span>
+    <span class="back-link"><%= link_to "カレンダーに戻る", plans_path, class:"back" %></span>
   </div>
   <div class="plan-form">
-    <%= form_with model: @plan, url: user_plans_path(date: @plan.date), id:"form", local: true do |f| %>
+    <%= form_with model: @plan, url: plans_path(date: @plan.date), id:"form", local: true do |f| %>
       <div class="schedule">
         <div class="schedule-label"><%= f.label "のみかた予定" %></div>
         <div class="schedule-text"><%= f.text_area :schedule, class:"schedule-box" %></div>

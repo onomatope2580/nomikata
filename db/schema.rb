@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
     t.integer "alcohol_amount"
     t.string "title"
     t.text "comment"
+
     t.integer "small_beer"
     t.integer "large_beer"
     t.integer "japanese_sake"
@@ -49,12 +50,22 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+
+    t.bigint "user_id", null: false
+    t.bigint "plan_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_diaries_on_plan_id"
+
     t.index ["user_id"], name: "index_diaries_on_user_id"
   end
 
   create_table "drinks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "d_name"
     t.text "d_comment"
+
+
     t.bigint "diary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,8 +73,10 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "f_name"
     t.text "f_comment"
+
     t.bigint "diary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -89,9 +102,11 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "r_name"
     t.text "r_comment"
     t.string "r_address"
+
     t.bigint "diary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -113,6 +128,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_025032) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+
   add_foreign_key "diaries", "users"
   add_foreign_key "drinks", "diaries"
   add_foreign_key "foods", "diaries"
