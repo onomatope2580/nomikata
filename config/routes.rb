@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: "users#index"
 
   resources :diaries
-
   resources :users, only: [:index, :show]
   resources :plans, except: :destroy
+  resources :alarms, only: [:index, :show]
 
 end

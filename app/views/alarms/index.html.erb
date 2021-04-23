@@ -1,0 +1,11 @@
+アラームモードです
+<span class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></span>
+<%= link_to "アラームを鳴らす", alarm_path(id: 1) %>
+
+<% unless @today_plan.nil? %>
+  <div class="today-plan-content">
+    <div class="today-goal">今日の目標</div>
+    <div class="today-plan"><%= @today_plan.alcohol_amount_plan %>mg</div>
+  </div>
+  <input type="hidden" id="today-plan" value="<%= @today_plan.alcohol_amount_plan %>">
+<% end %>

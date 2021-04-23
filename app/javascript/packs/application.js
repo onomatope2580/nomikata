@@ -11,6 +11,7 @@ require("../alcohol_amount")
 require("../calendar_warning")
 require("../image")
 require("../comparison")
+//= require audiojs
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
