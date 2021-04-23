@@ -10,25 +10,18 @@
         <div class="day-result-title">この日の実績</div>
         <div class="day-result"><%= @diary.alcohol_amount %>mg</div>
         <input type="hidden" id="result-value" value="<%= @diary.alcohol_amount %>">
-
-  <div class="plan-form">
-    <%= form_with model: @plan, url: plan_path(id: @plan.id, date: @plan.date), method: :patch, id:"form", local: true do |f| %>
-      <div class="schedule">
-        <div class="schedule-label"><%= f.label "のみかた予定" %></div>
-        <div class="schedule-text"><%= f.text_area :schedule, class:"schedule-box" %></div>
-
-      </div>
-      <div class="day-plan-show">
-        <div class="day-plan-title">この日の目標</div>
-        <div class="day-plan"><%= @plan.alcohol_amount_plan %>mg</div>
-        <input type="hidden" id="plan-value" value="<%= @plan.alcohol_amount_plan %>">
-      </div>
-      <div class="judge-comment"><h3 class="judge" id="judge"></h3></div>
-      <div class="day-diary-show"><%= link_to "この日の日記を見る", "#", class:"diary-show" %></div>
+    <div class="plan-form">
+        <div class="day-plan-show">
+          <div class="day-plan-title">この日の目標</div>
+          <div class="day-plan"><%= @plan.alcohol_amount_plan %>mg</div>
+          <input type="hidden" id="plan-value" value="<%= @plan.alcohol_amount_plan %>">
+        </div>
+        <div class="judge-comment"><h3 class="judge" id="judge"></h3></div>
+        <div class="day-diary-show"><%= link_to "この日の日記を見る", "#", class:"diary-show" %></div>
     </div>
   <% else %>
     <div class="plan-form">
-      <%= form_with model: @plan, url: user_plan_path(id: @plan.id, date: @plan.date), method: :patch, id:"form", local: true do |f| %>
+      <%= form_with model: @plan, url: plan_path(id: @plan.id, date: @plan.date), method: :patch, id:"form", local: true do |f| %>
         <div class="schedule">
           <div class="schedule-label"><%= f.label "のみかた予定" %></div>
           <div class="schedule-text"><%= f.text_area :schedule, class:"schedule-box" %></div>
