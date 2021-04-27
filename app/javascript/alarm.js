@@ -17,11 +17,14 @@ function alarm () {
   const drivePlanMinutes = document.getElementById('drive-plan-minutes');
   const finishTime = document.getElementById('finish-time');
 
+  const clearButton = document.getElementById('clear-button');
   const setButton = document.getElementById('set-button');
+  let timer;
+  clearButton.checked = true;
 
- 
 
   setButton.addEventListener('click', () => {
+    clearButton.checked = false;
 
     const H = drivePlanHour.value;              // 運転する予定の時間
     const M = drivePlanMinutes.value;        // 運転する予定の分
@@ -62,8 +65,11 @@ function alarm () {
         doAlarm(finishH, finishM);
       }
     }
-    
+  });
 
+  clearButton.addEventListener('click', () => {
+    setButton.checked = false;
+    clearTimeout(timer);
   });
 
   // 時間になったらアラームを発動させる関数
@@ -77,10 +83,10 @@ function alarm () {
     if (fMinutes >= nowMinutes) {
       const restTime = fMinutes - nowMinutes;   // 飲み会終了までの時間を分に直したもの
       // アラームを発動させる
-      setTimeout(startAlarm, (restTime * 60 * 1000));
+      timer = setTimeout(startAlarm, (restTime * 60 * 1000));
     } else {
       const restTime = (fMinutes + 1440 ) - nowMinutes;
-      setTimeout(startAlarm, (restTime * 60 * 1000));
+      timer = setTimeout(startAlarm, (restTime * 60 * 1000));
     }
   };
 
