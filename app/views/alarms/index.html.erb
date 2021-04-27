@@ -1,0 +1,33 @@
+アラームモードです
+<span class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></span>
+<%= link_to "アラームを鳴らす", alarm_path(id: 1), id:"to-alarm" %>
+
+<% unless @today_plan.nil? %>
+  <div class="today-plan-content">
+    <div class="today-goal">今日の目標</div>
+    <div class="today-plan"><%= @today_plan.alcohol_amount_plan %>mg</div>
+  </div>
+  <input type="hidden" id="today-plan" value="<%= @today_plan.alcohol_amount_plan %>">
+  <input type="hidden" id="user-weight" value="<%= @user_weight %>" >
+  <div class="drive-timer">運転したい時間でアラームをセット</div>
+  <div class="drive-hour" id="drive-hour"><h3 class="can-drive" id="can-drive"></h3></div>
+
+  <div class="drive-plan">次の運転予定は<input type="text" class="drive-plan-hour" id="drive-plan-hour">時<input type="text" class="drive-plan-minutes" id="drive-plan-minutes">分</div>
+  <div class="finish-time">
+    <h3 class="finish-hour" id="finish-hour"></h3>時<h3 class="finish-minutes" id="finish-minutes"></h3>分には飲み会を終了してください！
+  </div>
+  <div class="clear-button"><input type="radio" id="clear-button"></div>
+  <p class="set-timer" id="set-timer">アラームを解除</p>
+  <div class="set-button"><input type="radio" id="set-button"></div>
+  <p class="set-timer" id="set-timer">アラームをセット</p>
+  <div class="another-timer">任意の時間でアラームをセット</div>
+  <div class="another-plan"><input type="text" class="another-plan-hour" id="another-plan-hour">時<input type="text" class="another-plan-minutes" id="another-plan-minutes">分</div>
+  <div class="clear-button"><input type="radio" id="clear-another-button"></div>
+  <p class="set-timer" id="set-timer">アラームを解除</p>
+  <div class="set-button"><input type="radio" id="set-another-button"></div>
+  <p class="set-timer" id="set-timer">アラームをセット</p>
+
+
+<% else %>
+  <h3 class="warning">この機能を使うためには<br>本日の目標を決めてください</h3>
+<% end %>

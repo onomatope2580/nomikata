@@ -1,0 +1,12 @@
+アラーム画面
+<%= link_to "アラーム", alarms_path, class:"link-bar" %>
+
+<!-- 再生プレイヤー -->
+<%= audio_tag 'loop1.mp3', autoplay: true, loop: true %>
+
+<!-- audiojsの初期化 -->
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
