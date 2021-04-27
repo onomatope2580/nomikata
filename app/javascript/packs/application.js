@@ -11,6 +11,7 @@ require("../alcohol_amount")
 require("../calendar_warning")
 require("../image")
 require("../comparison")
+require("../alarm")
 //= require audiojs
 
 
