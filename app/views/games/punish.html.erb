@@ -1,0 +1,9 @@
+<h3 class="punishment">罰ゲーム</h3>
+<%= link_to "ゲーム一覧に戻る", "/games", class:"back-games" %>
+
+<div class="punish-game">
+  <span class="punish">罰ゲーム：</span><h3 class="punish-text"><%= @punishment.punish_game %></h3>
+</div>
+<div class="punish-point">
+  <%= @punishment.example %>
+</div>

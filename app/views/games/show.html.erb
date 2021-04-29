@@ -1,0 +1,19 @@
+<div class="game-title"><%= @game.title %></div>
+<%= link_to "ゲーム一覧に戻る", "/games", class:"back-games" %>
+
+<p class="how-play">ゲーム説明</p>
+<div class="rule-content">
+  <div class="rule">
+    <%= @game.rule %>
+  </div>
+</div>
+
+<div class="explanation-content">
+  <div class="explanation-text">
+    <%= @game.explanation %>
+  </div>
+</div>
+
+<div class="start-content">
+  <%= link_to "ゲームを始める", "/game/start/#{@game.id}", class:"go-start" %>
+</div>

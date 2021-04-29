@@ -1,0 +1,13 @@
+<div class="game-title"><%= @game.title %></div>
+<%= link_to "ゲーム説明に戻る", "/game/show/#{@game.id}", class:"back-game-show" %>
+
+<div class="theme-content">
+  <p class="theme">お題</p>
+  <h3 class="theme-text"><%= @theme.themes %></h3>
+</div>
+
+<div class="change-theme">
+  <input type="button" class="change-button" id="change-button" value="お題を変える">
+</div>
+
+<%= link_to "ゲームを終了する", "/games/punish/", class:"go-punish" %>
