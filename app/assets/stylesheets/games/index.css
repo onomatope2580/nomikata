@@ -1,0 +1,59 @@
+.game-index-page{
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.game-head{
+  height: 20%;
+  display: flex;
+}
+
+.game-title{
+  width: 70%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.game{
+  font-size: 40px;
+}
+
+.game-back{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.games{
+  height: 80%;
+}
+
+.game-content{
+  height: 33%;
+  display: flex;
+}
+
+.game-name{
+  width: 40%;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.game-link{
+  font-size: 30px;
+  text-decoration: none;
+  border: solid 1px black;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: blue;
+}
+
+.game-info{
+  width: 60%;
+  padding: 10px;
+}
+
+.game-info-text{
+  font-size: 30px;
+}
