@@ -1,0 +1,44 @@
+.game-how{
+  padding: 0 40px;
+  height: 30%;
+}
+.how-play{
+  font-size: 30px;
+}
+
+.rule-content{
+  height: 130px;
+  font-size: 16px;
+  border: 1px solid black;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.explanation-content{
+  padding: 0 40px;
+  height: 20%;
+}
+
+.explanation-text{
+  height: 80px;
+  font-size: 16px;
+  border: 1px solid black;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.start-content{
+  height: 20%;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.go-start{
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: blue;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}

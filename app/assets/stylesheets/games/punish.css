@@ -1,0 +1,33 @@
+.punish-game{
+  height: 40%;
+}
+
+.punish-title{
+  height: 30%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.punish{
+  font-size: 30px;
+}
+
+.punish-name{
+  height: 70%;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.punish-text{
+  font-size: 40px;
+  color: red;
+}
+
+.punish-point{
+  text-align: center;
+  padding: 0 40px;
+}
+
+.punish-comment{
+  font-size: 25px;
+}

@@ -1,19 +1,24 @@
-<div class="game-title"><%= @game.title %></div>
-<%= link_to "ゲーム一覧に戻る", "/games", class:"back-games" %>
-
-<p class="how-play">ゲーム説明</p>
-<div class="rule-content">
-  <div class="rule">
-    <%= @game.rule %>
+<div class="game-page">
+  <div class="game-head">
+    <div class="game-title"><h2 class="game"><%= @game.title %></h2></div>
+    <div class="game-back"><%= link_to "ゲーム一覧に戻る", "/games", class:"back-root" %></div>
   </div>
-</div>
 
-<div class="explanation-content">
-  <div class="explanation-text">
-    <%= @game.explanation %>
+  <div class="game-how">
+    <p class="how-play">ルール</p>
+    <div class="rule-content">
+      <%= @game.rule %>
+    </div>
   </div>
-</div>
 
-<div class="start-content">
-  <%= link_to "ゲームを始める", "/game/start/#{@game.id}", class:"go-start" %>
+  <div class="explanation-content">
+    <p class="how-play">遊び方</p>
+    <div class="explanation-text">
+      <%= @game.explanation %>
+    </div>
+  </div>
+
+  <div class="start-content">
+    <%= link_to "ゲームを始める", "/game/start/#{@game.id}", class:"go-start" %>
+  </div>
 </div>
