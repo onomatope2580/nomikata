@@ -1,47 +1,43 @@
-<div class="top">
-  <div class="top-wrapper">
-    <div class="header">
-      <div class="title"><h3>のみかたカレンダー<h3></div>
-      <div class="title month"><h3><%= @month %>月</h3></div>
-      <div class="back"><%= link_to "メニューページへ戻る", root_path%></div>
-      <input type="hidden" value="<%= @user_safety_amount %>" id="safety-amount">
-    </div>
+<div class="header">
+  <div class="title"><h3>のみかたカレンダー<h3></div>
+  <div class="title month"><h3><%= @month %>月</h3></div>
+  <div class="back"><%= link_to "メニューページへ戻る", root_path%></div>
+  <input type="hidden" value="<%= @user_safety_amount %>" id="safety-amount">
+</div>
 
-    <div class="calendar">
-      <% @day_num.times do |i|%>
-        <div class="calendar-days">
-          <div class="num"><%= link_to "#{i + 1}日", new_plan_path(date: Date.new(@year, @month, i + 1)), class:"wday" %></div>
-          <div class="day"><%= @days[Date.new(@year, @month, i + 1).wday] %></div>
-          <div class="plan">
-            <% @plans.each do |plan| %>
-              <% if plan.date == Date.new(@year, @month, i + 1) && (plan.alcohol_amount_plan != nil || plan.schedule.length != 0) %>
-                <div class="goal will"></div>
-                <div class="goal">目標　<%= plan.alcohol_amount_plan %>mg</div>
-                <% if plan.alcohol_amount_plan != "" %>
-                  <input type="hidden" value="<%= plan.alcohol_amount_plan %>" id="<%= i %><%= i %><%= i %>">
-                <% else %>
-                  <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
-                <% end %>
-              <% end %>
+<div class="calendar">
+  <% @day_num.times do |i|%>
+    <div class="calendar-days">
+      <div class="num"><%= link_to "#{i + 1}日", new_plan_path(date: Date.new(@year, @month, i + 1)), class:"wday" %></div>
+      <div class="day"><%= @days[Date.new(@year, @month, i + 1).wday] %></div>
+      <div class="plan">
+        <% @plans.each do |plan| %>
+          <% if plan.date == Date.new(@year, @month, i + 1) && (plan.alcohol_amount_plan != nil || plan.schedule.length != 0) %>
+            <div class="goal will"></div>
+            <div class="goal">目標　<%= plan.alcohol_amount_plan %>mg</div>
+            <% if plan.alcohol_amount_plan != "" %>
+              <input type="hidden" value="<%= plan.alcohol_amount_plan %>" id="<%= i %><%= i %><%= i %>">
+            <% else %>
+              <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
             <% end %>
-            <% @diaries.each do |diary| %>
-              <% if diary.date == Date.new(@year, @month, i + 1) %>
-                <div class="goal will"></div>
-                <div class="goal real">実績　<%= diary.alcohol_amount %>mg</div>
-                <% if diary.alcohol_amount != "" %>
-                  <input type="hidden" value="<%= diary.alcohol_amount %>" id="<%= i %><%= i %><%= i %>">
-                <% else %>
-                  <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
-                <% end %>
-              <% end %>
+          <% end %>
+        <% end %>
+        <% @diaries.each do |diary| %>
+          <% if diary.date == Date.new(@year, @month, i + 1) %>
+            <div class="goal will"></div>
+            <div class="goal real">実績　<%= diary.alcohol_amount %>mg</div>
+            <% if diary.alcohol_amount != "" %>
+              <input type="hidden" value="<%= diary.alcohol_amount %>" id="<%= i %><%= i %><%= i %>">
+            <% else %>
+              <input type="hidden" value="#" id="<%= i %><%= i %><%= i %>">
             <% end %>
-            <div class="result">
-              
-            </div>
-            <div class="warning"><h3 class="warning-text" id="<%= i %><%= i %>"></h3></div>
-          </div>
+          <% end %>
+        <% end %>
+        <div class="result">
+          
         </div>
-      <% end %>
+        <div class="warning"><h3 class="warning-text" id="<%= i %><%= i %>"></h3></div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
