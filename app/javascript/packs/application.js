@@ -12,6 +12,7 @@ require("../calendar_warning")
 require("../image")
 require("../comparison")
 require("../alarm")
+require("../reload")
 //= require audiojs
 
 
