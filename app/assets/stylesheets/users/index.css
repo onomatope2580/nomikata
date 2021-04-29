@@ -3,24 +3,6 @@
   margin: 0;
 }
 
-.top{
-  background-image: url("/images/860.jpg");
-  background-size: cover;
-  height: 100vh;
-}
-
-.top-wrapper{
-  width: 70vw;
-  height: 100vh;
-  padding: 0, 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgba(248, 248, 255, 0.795);
-  margin: auto;
-}
-
 .title{
   font-size: 50px;
 }
@@ -52,14 +34,6 @@
   border-radius: 10px;
   padding: 10px;
   background-color: lightpink;
-}
-
-.menu-wrapper{
-  width: 70vw;
-  height: 100vh;
-  padding:0, 200px;
-  background-color: rgba(248, 248, 255, 0.795);
-  margin: auto;
 }
 
 .menu-header{
@@ -125,6 +99,6 @@
   background-color: palegreen;
 }
 
-span{
+.small-title{
   color: deeppink;
 }

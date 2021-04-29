@@ -1,33 +1,49 @@
-アラームモードです
-<span class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></span>
-<%= link_to "アラームを鳴らす", alarm_path(id: 1), id:"to-alarm" %>
-
-<% unless @today_plan.nil? %>
-  <div class="today-plan-content">
-    <div class="today-goal">今日の目標</div>
-    <div class="today-plan"><%= @today_plan.alcohol_amount_plan %>mg</div>
+<div class="alarm-page">
+  <div class="alarm-head">
+    <div class="alarm-title">アラーム設定</div>
+    <div class="back-link"><%= link_to "メニューに戻る", root_path, class:"back" %></div>
+    <div class="alarm-link"><%= link_to "アラームを鳴らす", alarm_path(id: 1), id:"to-alarm",class:"to-alarm" %></div>
   </div>
-  <input type="hidden" id="today-plan" value="<%= @today_plan.alcohol_amount_plan %>">
-  <input type="hidden" id="user-weight" value="<%= @user_weight %>" >
-  <div class="drive-timer">運転したい時間でアラームをセット</div>
-  <div class="drive-hour" id="drive-hour"><h3 class="can-drive" id="can-drive"></h3></div>
 
-  <div class="drive-plan">次の運転予定は<input type="text" class="drive-plan-hour" id="drive-plan-hour">時<input type="text" class="drive-plan-minutes" id="drive-plan-minutes">分</div>
-  <div class="finish-time">
-    <h3 class="finish-hour" id="finish-hour"></h3>時<h3 class="finish-minutes" id="finish-minutes"></h3>分には飲み会を終了してください！
-  </div>
-  <div class="clear-button"><input type="radio" id="clear-button"></div>
-  <p class="set-timer" id="set-timer">アラームを解除</p>
-  <div class="set-button"><input type="radio" id="set-button"></div>
-  <p class="set-timer" id="set-timer">アラームをセット</p>
-  <div class="another-timer">任意の時間でアラームをセット</div>
-  <div class="another-plan"><input type="text" class="another-plan-hour" id="another-plan-hour">時<input type="text" class="another-plan-minutes" id="another-plan-minutes">分</div>
-  <div class="clear-button"><input type="radio" id="clear-another-button"></div>
-  <p class="set-timer" id="set-timer">アラームを解除</p>
-  <div class="set-button"><input type="radio" id="set-another-button"></div>
-  <p class="set-timer" id="set-timer">アラームをセット</p>
+  <% unless @today_plan.nil? %>
+    <div class="today-plan-content">
+      <div class="today-goal">今日の目標</div>
+      <div class="today-plan"><%= @today_plan.alcohol_amount_plan %>mg</div>
+    </div>
+    <input type="hidden" id="today-plan" value="<%= @today_plan.alcohol_amount_plan %>">
+    <input type="hidden" id="user-weight" value="<%= @user_weight %>" >
+
+    <div class="timer-content">
+      <div class="drive-time">
+        <div class="drive-timer">・運転したい時間でアラームをセット</div>
+        <div class="drive-hour" id="drive-hour"><h3 class="can-drive" id="can-drive"></h3></div>
+        <div class="drive-plan"><span class="text">次の運転予定は</span><input type="text" class="drive-plan-hour" id="drive-plan-hour"><span class="text">時</span><input type="text" class="drive-plan-minutes" id="drive-plan-minutes"><span class="text">分</span></div>
+        <div class="finish-time">
+          <h3 class="finish-hour" id="finish-hour"></h3>
+        </div>
+        <div class="control-alarm">
+          <div class="clear-button"><input type="radio" id="clear-button"></div>
+          <p class="set-timer" id="set-timer">アラームを解除</p>
+          <div class="set-button"><input type="radio" id="set-button"></div>
+          <p class="set-timer" id="set-timer">アラームをセット</p>
+        </div>
+      </div>
+      <div class="drive-time">
+        <div class="drive-timer">・任意の時間でアラームをセット</div>
+        <div class="drive-plan"><input type="text" class="drive-plan-hour" id="another-plan-hour"><span class="text">時</span><input type="text" class="drive-plan-minutes" id="another-plan-minutes"><span class="text">分</span></div>
+        <div class="control-alarm">
+          <div class="clear-button"><input type="radio" id="clear-another-button"></div>
+          <p class="set-timer" id="set-timer">アラームを解除</p>
+          <div class="set-button"><input type="radio" id="set-another-button"></div>
+          <p class="set-timer" id="set-timer">アラームをセット</p>
+        </div>
+      </div>
+    </div>
 
 
-<% else %>
-  <h3 class="warning">この機能を使うためには<br>本日の目標を決めてください</h3>
-<% end %>
+  <% else %>
+    <div class="alarm-content">
+      <div class="warn">この機能を使うためには<br>本日の目標を決めてください</div>
+    </div>
+  <% end %>
+</div>

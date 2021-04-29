@@ -1,0 +1,118 @@
+.alarm-page{
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.alarm-head{
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.alarm-link{
+  display: none;
+}
+
+.alarm-title{
+  width: 60%;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.back-link{
+  width: 40%;
+  padding-top: 70px;
+  padding-right: 30px;
+  font-size: 20px;
+}
+
+.alarm-content{
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.warn{
+  width: 100%;
+  font-size: 35px;
+  text-align: center;
+  color: red;
+}
+
+.timer-content{
+  padding: 0 40px;
+}
+
+.drive-time{
+  height: 250px;
+  padding-left: 200px;
+}
+
+.drive-timer{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.can-drive{
+  margin-bottom: 10px;
+}
+
+.drive-plan{
+  font-size: 20px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.drive-plan-hour{
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  padding-left: 5px;
+}
+
+.drive-plan-minutes{
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  padding-left: 5px;
+}
+
+.text{
+  padding-top: 10px;
+}
+
+.finish-hour{
+  color: red;
+  margin-bottom: 10px;
+}
+
+.control-alarm{
+  display: flex;
+}
+
+.set-button{
+  margin-left: 40px;
+}
+
+
+
+.stop{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stop-page{
+  height: 70%;
+  width: 70%;
+  background-image: url("/images/0-3.jpg");
+  background-size: 100% 100%;
+  margin: auto;
+  box-shadow: 15px 15px 30px black;
+}

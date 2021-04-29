@@ -30,7 +30,6 @@ function alarm () {
     const M = drivePlanMinutes.value;        // 運転する予定の分
 
     const finishHour = document.getElementById('finish-hour');           // 飲み会終了の時間の表示要素の取得
-    const finishMinutes = document.getElementById('finish-minutes');     // 飲み会終了の分の表示要素の取得
 
     let finishH;   // 飲み会終了時間の定義
     let finishM;   // 飲み会終了分の定義
@@ -40,28 +39,24 @@ function alarm () {
       if (H >= hour){
         finishH = H - hour;
         finishM = M - minutes;
-        finishHour.innerHTML = finishH;
-        finishMinutes.innerHTML = finishM;
+        finishHour.innerHTML = `${finishH}時${finishM}分には飲み会を終了してください！`;
         doAlarm(finishH, finishM);
       } else {
         finishH = 24 + (H - hour);
         finishM = M - minutes;
-        finishHour.innerHTML = finishH;
-        finishMinutes.innerHTML = finishM;
+        finishHour.innerHTML = `${finishH}時${finishM}分には飲み会を終了してください！`;
         doAlarm(finishH, finishM);
       }
     } else {
       if ((H - 1) >= hour){
         finishH = (H - 1) - hour;
         finishM = 60 + (M - minutes);
-        finishHour.innerHTML = finishH;
-        finishMinutes.innerHTML = finishM;
+        finishHour.innerHTML = `${finishH}時${finishM}分には飲み会を終了してください！`;
         doAlarm(finishH, finishM);
       } else {
         finishH = 24 + ((H - 1) - hour);
         finishM = 60 + (M - minutes);
-        finishHour.innerHTML = finishH;
-        finishMinutes.innerHTML = finishM;
+        finishHour.innerHTML = `${finishH}時${finishM}分には飲み会を終了してください！`;
         doAlarm(finishH, finishM);
       }
     }

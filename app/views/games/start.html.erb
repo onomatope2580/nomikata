@@ -1,13 +1,17 @@
-<div class="game-title"><%= @game.title %></div>
-<%= link_to "ゲーム説明に戻る", "/game/show/#{@game.id}", class:"back-game-show" %>
+<div class="game-page">
+  <div class="game-head">
+    <div class="game-title"><h2 class="game"><%= @game.title %></h2></div>
+    <div class="game-back"><%= link_to "ゲーム説明に戻る", "/game/show/#{@game.id}", class:"back-root" %></div>
+  </div>
 
-<div class="theme-content">
-  <p class="theme">お題</p>
-  <h3 class="theme-text"><%= @theme.themes %></h3>
+  <div class="theme-content">
+    <div class="theme-name odai"><p class="theme">お題</p></div>
+    <div class="theme-name theme-text"><h3 class="theme-text"><%= @theme.themes %></h3></div>
+    <div class="theme-name theme-change">
+      <input type="button" class="change-button" id="change-button" value="お題を変える">
+    </div>
+  </div>
+  <div class="start-content">
+    <%= link_to "ゲームを終了する", "/games/punish/", class:"go-start" %>
+  </div>
 </div>
-
-<div class="change-theme">
-  <input type="button" class="change-button" id="change-button" value="お題を変える">
-</div>
-
-<%= link_to "ゲームを終了する", "/games/punish/", class:"go-punish" %>

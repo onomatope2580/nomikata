@@ -6,6 +6,7 @@
 .new-plan{
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
 }
 
 .plan-title{
@@ -35,11 +36,13 @@
 
 .schedule-box{
   height: 100px;
-  width: 500px;
+  width: 40%;
+  padding: 5px 5px;
   overflow: scroll;
   font-size: 20px;
   letter-spacing: 3px;
-  
+  background-color: rgb(228, 245, 247);
+  border: 2px solid black;
 }
 
 .amount-title{
@@ -48,21 +51,24 @@
 }
 
 .drink-choice{
-  width: 700px;
+  width: 70%;
   height: 350px;
   border: 1px black solid;
   margin: auto;
   display: flex;
+  border: 2px solid black;
 }
 
 .left-choice{
   width: 50%;
   height: 100%;
+  padding-left: 50px;
 }
 
 .right-choice{
   width: 50%;
   height: 100%;
+  padding-left: 50px;
 }
 
 ul{
@@ -78,7 +84,10 @@ ul{
 .amount-box{
   width: 50px;
   height: 40px;
+  padding-left: 5px;
   font-size: 20px;
+  background-color: rgb(228, 245, 247);
+  border: 1px solid black;
 }
 
 .amount-sum{
@@ -96,9 +105,16 @@ ul{
   height: 40px;
   font-size: 20px;
   border: 1px black solid;
-  padding-top: 5px;
   margin: auto;
   text-align: center;
+}
+
+.safety-num{
+  background-color: rgb(228, 245, 247);
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-top: 5px;
 }
 
 .g{
@@ -120,6 +136,7 @@ ul{
   border: 1px black solid;
   padding-top: 5px;
   margin: auto;
+  background-color: rgb(228, 245, 247);
 }
 
 .comment{
@@ -136,7 +153,6 @@ ul{
   text-align: center;
   margin: 10px 0;
 }
-
 
 
 .sum-box{
