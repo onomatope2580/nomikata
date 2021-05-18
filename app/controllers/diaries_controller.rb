@@ -45,7 +45,6 @@ class DiariesController < ApplicationController
   end
 
   def update
-    binding.pry
   end
 
   def destroy
